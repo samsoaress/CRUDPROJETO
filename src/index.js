@@ -45,6 +45,13 @@ if (v.length <= 11) {
 }
   return v;
 }
+function datadenascimento(v){
+  v = v.replace(/\D/g, "")
+  v = v.replace(/(\d{2})(\d)/, "$1/$2")
+  v = v.replace(/(\d{2})(\d)/, "$1/$2")
+  v = v.replace(/(\d{4})(\d)/, "$1");
+  return v;
+}
 function id(el) {
   return document.getElementById(el);
 }
@@ -55,5 +62,7 @@ window.onload = function () {
   id("cpf").onkeyup = function () {
     mascara(this,cpf);
   };  
-
+  id("datadenascimento").onkeyup = function () {
+    mascara(this,datadenascimento);
+  };
 };
