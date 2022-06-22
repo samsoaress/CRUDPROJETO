@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#cep").on("blur", function () {
     const cep = $(this).val();
-    const url = "https://viacep.com.br/ws/" + cep + "/json/";
+    const url = "./https://viacep.com.br/ws/" + cep + "/json/";
 
     $.ajax({
       url: url,
