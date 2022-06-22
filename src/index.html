@@ -12,6 +12,15 @@
     <div>
       <form action="">
         <h1 class="text-center">Cadastro de Formulario</h1>
+        <div class="row">
+        <div class="col mb-3">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1">Pessoa fisica</button>
+        </div>
+        <div class="col mb-3">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1">Pessoa juridica</button>
+        </div>
+      </div>
+         <div class="row">
           <div class="col mb-3">
             <label for="Nome" class="form-label">Nome</label>
             <input type="Nome" name="Nome" class="form-control" id="Nome" placeholder="Nome" required>
@@ -20,6 +29,8 @@
             <label for="sobrenome" class="form-label">Sobrenome</label>
             <input type="sobrenome" name="sobrenome" class="form-control" id="sobrenome" placeholder="sobrenome" required>
           </div>
+        </div>
+        <div class="row">
           <div class="col mb-3">
             <label for="email" class="form-label">E-mail</label>
             <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
@@ -27,7 +38,9 @@
           <div class="col mb-3">
             <label for="senha" class="form-label">Senha</label>
             <input type="password" name="senha" class="form-control" id="senha" placeholder="senha" required>
-          </div>   
+          </div>
+        </div>
+        <div class="row">
           <div class="col mb-3">
             <label for="cpf" class="form-label">CPF/CNPJ</label>
             <input type="text" name="cpf" class="form-control" id="cpf" placeholder="cpf/cnpj" required>
@@ -36,6 +49,8 @@
             <label for="cep" class="form-label">CEP</label>
             <input type="text" name="cep" class="form-control" id="cep" placeholder="cep" required>
           </div>
+        </div>
+        <div class="row">
             <div class="col mb-3">
               <label for="logradouro" class="form-label">Logradouro</label>
               <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="logradouro" required>
@@ -44,6 +59,8 @@
               <label for="numero" class="form-label">Numero</label>
               <input type="text" name="numero" class="form-control" id="numero" placeholder="numero" required>
             </div>
+          </div>
+          <div class="row">
             <div class="col mb-3">
               <label for="bairro" class="form-label">Bairro</label>
               <input type="text" name="bairro" class="form-control" id="bairro" placeholder="Bairro" required>
@@ -52,6 +69,8 @@
               <label for="cidade" class="form-label">Cidade</label>
               <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cidade"required>
             </div>
+          </div>
+          <div class="row">
             <div class="col mb-3">
               <label for="estado" class="form-label">Estado</label>
               <select id="estado" class="form-control form-select" required>
@@ -89,6 +108,8 @@
               <input type="text" name="telefone" class="form-control" id="telefone" placeholder="telefone" maxlength="15"
               required>
             </div>
+          </div>
+          <div class="row">
             <div class="col mb-3">
               <label for="sexo">Sexo</label>
               <div>
@@ -114,11 +135,12 @@
               <input type="text" name="datadenascimento" class="form-control" id="datadenascimento"
                 placeholder="data de nascimento" required>
             </div>
+          </div>
         <div class="col mb-3">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="validationCustom11" required>
             <label class="form-check-label" for="validationCustom11">
-              MARQUE AQUI
+             Selecionado termos e condições
             </label>
           </div>
         </div>
