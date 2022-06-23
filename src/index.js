@@ -68,3 +68,11 @@ window.onload = function () {
     mascara(this,datadenascimento);
   };
 };
+$('input[name="FlgPontua"]').change(function () {
+  if ($('input[name="FlgPontua"]:checked').val() === "nao") {      
+    $('.camposExtras').show();    
+  } else {
+      $('.camposExtras').hide();
+  }
+});
+
