@@ -32,7 +32,7 @@ function mtel(v) {
   v = v.replace(/(\d)(\d{4})$/, "$1-$2"); 
   return v;
 }
-function cpf(v){
+function validationcpf(v){
 if (v.length <= 14) {
   v = v.replace(/\D/g, "")
   v = v.replace(/(\d{3})(\d)/, "$1.$2")
@@ -70,8 +70,8 @@ window.onload = function () {
   id("telefone").onkeyup = function () {
     mascara(this, mtel);
   };
-  id("cpf").onkeyup = function () {
-    mascara(this,cpf);
+  id("validationcpf").onkeyup = function () {
+    mascara(this,validationcpf);
   };  
   id("datadenascimento").onkeyup = function () {
     mascara(this,datadenascimento);
@@ -95,3 +95,20 @@ function pessoaFisica(){
   }
 }
 pessoaFisica();
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
+    const forms = document.getElementsByClassName('needs-validation');
+    // Faz um loop neles e evita o envio
+    const validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();

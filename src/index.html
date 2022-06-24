@@ -63,12 +63,18 @@
         </div>
         <div class="row">
           <div class="col mb-3">
-            <label for="cpf" class="form-label">CPF *</label>
-            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="cpf" maxlength="18" required>
+            <label for="validationcpf" class="form-label">CPF *</label>
+            <input type="text" name="validationcpf" class="form-control" id="validationcpf" placeholder="cpf" maxlength="14" required>
+            <div class="invalid-feedback">
+              Por favor, informe um CPF válido.
+            </div>
           </div>
           <div class="col mb-3">
             <label for="cep" class="form-label">CEP *</label>
-            <input type="text" name="cep" class="form-control" id="cep" placeholder="cep" required>
+            <input type="text" name="cep" class="form-control invalid" id="cep" placeholder="cep" required>
+            <div class="invalid-feedback">
+              Por favor, informe um CEP válido.
+            </div>
           </div>
         </div>
         <div class="row">
