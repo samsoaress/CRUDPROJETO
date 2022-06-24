@@ -67,12 +67,21 @@ window.onload = function () {
   id("datadenascimento").onkeyup = function () {
     mascara(this,datadenascimento);
   };
-};
-$('input[name="FlgPontua"]').change(function () {
-  if ($('input[name="FlgPontua"]:checked').val() === "nao") {      
-    $('.camposExtras').show();    
+}
+function pessoaJuridica(){
+  
+  if ($("#juridica").is(":checked")) {
+          
+    $('.camposExtras').show();  
   } else {
-      $('.camposExtras').hide();
+    $('.camposExtras').hide();   
   }
-});
-
+}
+function pessoaFisica(){
+  if ($("#fisica").is(":checked")) {      
+    $('.camposExtras').hide();
+  } else {
+    $('.camposExtras').show();
+  }
+}
+pessoaFisica();
