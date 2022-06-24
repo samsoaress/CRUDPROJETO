@@ -47,6 +47,15 @@ if (v.length <= 14) {
 }
   return v;
 }
+function cnpj(v){
+    v = v.replace(/\D/g, "")
+    v = v.replace(/^(\d{2})(\d)/, "$1.$2")
+    v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+    v = v.replace(/\.(\d{3})(\d)/, ".$1/$2")
+    v = v.replace(/(\d{4})(\d)/, "$1-$2") 
+    return v; 
+  }
+    
 function datadenascimento(v){
   v = v.replace(/\D/g, "")
   v = v.replace(/(\d{2})(\d)/, "$1/$2")
@@ -67,11 +76,12 @@ window.onload = function () {
   id("datadenascimento").onkeyup = function () {
     mascara(this,datadenascimento);
   };
+  id("cnpj").onkeyup = function () {
+    mascara(this,cnpj);
+  };
 }
-function pessoaJuridica(){
-  
-  if ($("#juridica").is(":checked")) {
-          
+function pessoaJuridica(){ 
+  if ($("#juridica").is(":checked")) {  
     $('.camposExtras').show();  
   } else {
     $('.camposExtras').hide();   
