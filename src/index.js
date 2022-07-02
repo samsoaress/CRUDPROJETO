@@ -1,3 +1,19 @@
+function pessoaJuridica(){ 
+  if ($("#juridica").is(":checked")) {  
+    $('.camposExtras').show();  
+  } else {
+    $('.camposExtras').hide();   
+  }
+}
+function pessoaFisica(){
+  if ($("#fisica").is(":checked")) {      
+    $('.camposExtras').hide();
+  } else {
+    $('.camposExtras').show();
+  }
+}
+pessoaFisica();
+
 $(document).ready(function () {
   $("#cep").on("blur", function () {
     const cep = $(this).val();
@@ -18,97 +34,25 @@ $(document).ready(function () {
     });
   });
 });
-function mascara(o, f) {
-  v_obj = o;
-  v_fun = f;
-  setTimeout("telemascara()", 1);
-}
-function telemascara() {
-  v_obj.value = v_fun(v_obj.value);
-}
-function mtel(v) {
-  v = v.replace(/\D/g, ""); 
-  v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); 
-  v = v.replace(/(\d)(\d{4})$/, "$1-$2"); 
-  return v;
-}
-function validationcpf(v){
-if (v.length <= 14) {
-  v = v.replace(/\D/g, "")
-  v = v.replace(/(\d{3})(\d)/, "$1.$2")
-  v = v.replace(/(\d{3})(\d)/, "$1.$2")
-  v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
-} else {
-  v = v.replace(/\D/g, "")
-  v = v.replace(/^(\d{2})(\d)/, "$1.$2")
-  v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
-  v = v.replace(/\.(\d{3})(\d)/, ".$1/$2")
-  v = v.replace(/(\d{4})(\d)/, "$1-$2")  
-}
-  return v;
-}
-function cnpj(v){
-    v = v.replace(/\D/g, "")
-    v = v.replace(/^(\d{2})(\d)/, "$1.$2")
-    v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
-    v = v.replace(/\.(\d{3})(\d)/, ".$1/$2")
-    v = v.replace(/(\d{4})(\d)/, "$1-$2") 
-    return v; 
-  }
-    
-function datadenascimento(v){
-  v = v.replace(/\D/g, "")
-  v = v.replace(/(\d{2})(\d)/, "$1/$2")
-  v = v.replace(/(\d{2})(\d)/, "$1/$2")
-  v = v.replace(/(\d{4})(\d)/, "$1");
-  return v;
-}
-function id(el) {
-  return document.getElementById(el);
-}
-window.onload = function () {
-  id("telefone").onkeyup = function () {
-    mascara(this, mtel);
-  };
-  id("validationcpf").onkeyup = function () {
-    mascara(this,validationcpf);
-  };  
-  id("datadenascimento").onkeyup = function () {
-    mascara(this,datadenascimento);
-  };
-  id("cnpj").onkeyup = function () {
-    mascara(this,cnpj);
-  };
-}
-function pessoaJuridica(){ 
-  if ($("#juridica").is(":checked")) {  
-    $('.camposExtras').show();  
-  } else {
-    $('.camposExtras').hide();   
-  }
-}
-function pessoaFisica(){
-  if ($("#fisica").is(":checked")) {      
-    $('.camposExtras').hide();
-  } else {
-    $('.camposExtras').show();
-  }
-}
-pessoaFisica();
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
-    const forms = document.getElementsByClassName('needs-validation');
-    // Faz um loop neles e evita o envio
-    const validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
+
+$(function() {
+    $("#datadenascimento").datepicker({
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
     });
-  }, false);
-})();
+});
+
+$("input[id='cpfcnpj']").inputmask({
+  mask: ['999.999.999-99', '99.999.999/9999-99'],
+  keepStatic: true
+});
+const campo = $("#cpf-cpnj").val();
+if(campo <= 11){
+    alert("CPF") ;
+}else{
+    alert("validade");
+}
