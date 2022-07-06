@@ -35,7 +35,7 @@ $(document).ready(function () {
   });
 });
 
-$(function() {
+$(function() {         
     $("#datadenascimento").datepicker({
         dateFormat: 'dd/mm/yy',
         dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
@@ -50,9 +50,14 @@ $("input[id='cpfcnpj']").inputmask({
   mask: ['999.999.999-99', '99.999.999/9999-99'],
   keepStatic: true
 });
-const campo = $("#cpf-cpnj").val();
+$("input[id='telefone']").inputmask({
+  mask: ['(99)9999-9999', '(99)99999-9999'],
+  keepStatic: true
+});
+
+const campo = $("#cpfcpnj").val();
 if(campo <= 11){
-    alert("CPF") ;
+    valida("cpfcpnj") ;
 }else{
-    alert("validade");
+    valida("cpfcpnj");
 }
