@@ -59,7 +59,9 @@
           </div>
           <div class="col mb-3">
             <label for="senha" class="form-label">Senha *</label>
-            <input type="password" name="senha" class="form-control" id="senha" placeholder="senha" required>
+            <input type="password" name="password" class="form-control" id="password"   minlength="6" maxlength="12" onKeyUp="verificaForcaSenha()" placeholder="senha" required>
+            <br/><span id="password-status"></span>
+          
           </div>
         </div>
         <div class="row">
@@ -155,7 +157,7 @@
             <div class="col mb-3"> 
               <label for="datadenascimento" class="form-label">Data de nascimento *</label>
               <input  type="text" class="date" name="datadenascimento" class="form-control" id="datadenascimento"placeholder="data de nascimento" required >
-              <span role="button" tabindex="0">Non-button element button</span>
+            
               
               </div>
           </div>

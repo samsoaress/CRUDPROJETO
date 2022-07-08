@@ -47,7 +47,11 @@ $(function() {
 });
 
 $("input[id='cpfcnpj']").inputmask({
-  mask: ['999.999.999-99', '99.999.999/9999-99'],
+  mask: ['99.999.999/9999-99'],
+  keepStatic: true
+});
+$("input[id='cpf']").inputmask({
+  mask: ['999.999.999-99'],
   keepStatic: true
 });
 $("input[id='telefone']").inputmask({
@@ -55,9 +59,29 @@ $("input[id='telefone']").inputmask({
   keepStatic: true
 });
 
+function verificaForcaSenha() 
+{
+	const numeros = /([0-9])/;
+	const alfabeto = /([a-zA-Z])/;
+	const chEspeciais = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+
+	if($('#password').val().length<6) 
+	{
+		$('#password-status').html("<span style='color:red'>Fraco, insira no mínimo 6 caracteres</span>");
+	} else {  	
+		if($('#password').val().match(numeros) && $('#password').val().match(alfabeto) && $('#password').val().match(chEspeciais))
+		{            
+			$('#password-status').html("<span style='color:green'><b>Forte</b></span>");
+		} else {
+			$('#password-status').html("<span style='color:orange'>Médio, insira um caracter especial</span>");
+		}
+	}
+}
+
+
 const campo = $("#cpfcpnj").val();
 if(campo <= 11){
     valida("cpfcpnj") ;
 }else{
-    valida("cpfcpnj");
+    valida("cpfcpnj ");
 }
