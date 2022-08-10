@@ -55,12 +55,12 @@ mysqli_close($conexao);
                     <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Salvo com sucesso!</h1>
                         <div class="d-flex justify-content-evenly ">
                             <div>
-                             <a href="http://formularioui.com/formulario_UI/backend/tabela.php"> <button type="button" class=" btn btn-primary btn-lg"> 
+                             <a href=""> <button type="button" class=" btn btn-primary btn-lg"> 
                             Voltar Pagina registros </button> </a>
                             </div>
     
                             <div>
-                            <a href="http://formularioui.com/formulario_UI/Formulario/"> <button type="button" class=" btn btn-info btn-lg"> 
+                            <a href=""> <button type="button" class=" btn btn-info btn-lg"> 
                             Novo Usuario </button> </a>         
                             </div>
     

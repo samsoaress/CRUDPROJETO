@@ -3,7 +3,7 @@
 $servidor = "localhost";
 $usuario = "root";
 $senha = "";
-$dbname = "formulario";
+$dbname = "formulario.slq";
 // Create connection
 $conexao = mysqli_connect($servidor,$usuario, $senha, $dbname );
 // Check connection
