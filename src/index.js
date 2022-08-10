@@ -59,8 +59,17 @@ $("input[id='telefone']").inputmask({
   keepStatic: true
 });
 
+
+
+const campo = $("#cpfcpnj").val();
+if(campo <= 11){
+    valida("cpfcpnj") ;
+}else{
+    valida("cpfcpnj ");
+}
+
 function verificaForcaSenha() 
-{
+{ 
 	const numeros = /([0-9])/;
 	const alfabeto = /([a-zA-Z])/;
 	const chEspeciais = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
@@ -75,13 +84,5 @@ function verificaForcaSenha()
 		} else {
 			$('#password-status').html("<span style='color:orange'>Médio, insira um caracter especial</span>");
 		}
-	}
-}
-
-
-const campo = $("#cpfcpnj").val();
-if(campo <= 11){
-    valida("cpfcpnj") ;
-}else{
-    valida("cpfcpnj ");
-}
+  }
+} 
