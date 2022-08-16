@@ -1,6 +1,9 @@
 <?php
 
 include("conexao.php");
+if(isset($post)){
+
+
 
 $nome = $_POST['nome'];
 $sobrenome = $_POST['sobrenome'];
@@ -32,7 +35,7 @@ $sql = "INSERT INTO pessoa(no_pessoa,ds_sobrenome,ds_email,ds_cpf,ds_cep,ds_logr
 VALUES ('$nome','$sobrenome','$email','$cpf','$cep','$rua','$bairro','$cidade','$estado','$telefone','$numero','$sexo','$datanasc')";
 
 mysqli_close($conexao);
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,16 +47,16 @@ mysqli_close($conexao);
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <title>Sucesso</title>
 </head>
-<body class="bg-dark ">
+<body class=" ">
 <div class="container ">
-        <div class="row form-cadastro justify-content-center bg-dark ">
+        <div class="row form-cadastro justify-content-center  ">
             <div class="col-6 aling-self-center bg-white">
                 <div class="row justify-content-center mb-4">
                     <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Salvo com sucesso!</h1>
                         <div class="d-flex justify-content-evenly ">
                             <div>
                              <a href=""> <button type="button" class=" btn btn-primary btn-lg"> 
-                            Voltar Pagina registros </button> samuel</a>
+                            Voltar Pagina registros </button></a>
                             </div>
     
                             <div>

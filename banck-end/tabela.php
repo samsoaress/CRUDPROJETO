@@ -34,9 +34,11 @@ $con = $conexao->query($consulta) or die ($conexao->error);
         <td>NUMERO</td>
         <td>SEXO</td>
         <td>DATA NASCIMENTO</td>
+        <td colspan="2">opecoes</td>
         </tr>
         <?php while ($dado = $con->fetch_array()){?>
         <tr>
+  
             <td><?php echo $dado["id_pessoa"]; ?></td>
             <td><?php echo $dado["no_pessoa"];?></td>
             <td><?php echo $dado["ds_sobrenome"];?></td>
@@ -44,14 +46,14 @@ $con = $conexao->query($consulta) or die ($conexao->error);
             <td><?php echo $dado["co_tipo_pessoa"];?></td>
             <td><?php echo $dado["ds_cpf"];?></td>
             <td><?php echo $dado["ds_cnpj"];?></td>
-            <td><?php echo $dado["ds_cep"];?></td>
+            <td><?php echo $dado["nu_cep"];?></td>
             <td><?php echo $dado["ds_logradouro"];?></td>
             <td><?php echo $dado["ds_bairro"];?></td>
             <td><?php echo $dado["ds_cidade"];?></td>
             <td><?php echo $dado["co_uf"];?></td>
             <td><?php echo $dado["ds_telefone"];?></td>
             <td><?php echo $dado["ds_numero"];?></td>
-            <td><?php echo $dado["id_sexo"];?></td>
+            <td><?php echo $dado["sexo_id_sexo"];?></td>
             <td><?php echo date ("d/m/y", strtotime($dado["dt_nascimento"]));?></td>
             <td><?php echo "<a class='btn btn-sm btn-danger' href='excluir_usu.php?id_pessoa=" . $dado['id_pessoa'] . "'> <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
                                     <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
@@ -66,6 +68,10 @@ $con = $conexao->query($consulta) or die ($conexao->error);
         
         <?php } ?>
     </table> 
+    <div>
+                             <a href="cadastro.php"> <button type="button" class=" btn btn-primary btn-lg"> 
+                            adicionar cliente</button></a>
+                            </div>
     
     
 </body>
