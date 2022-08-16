@@ -1,7 +1,5 @@
 <?php
-/************************************* 
- * Salvar as informações no banco de dados
- * *************************************** ********/
+
 include("conexao.php");
 
 $nome = $_POST['nome'];
@@ -12,8 +10,7 @@ $nomefantasia = $_POST['nomefantasia'];
 $email = $_POST['email'];
 //$cnpj = $_POST['cpnj'];
 $senha = $_POST['senha'];
-$senha2 = $_POST['senha2'];
-//corrigindo data 
+
 $datanasc = $_POST['data'];
    $result=explode('/',$datanasc);
    $dia = $result[0];
@@ -56,7 +53,7 @@ mysqli_close($conexao);
                         <div class="d-flex justify-content-evenly ">
                             <div>
                              <a href=""> <button type="button" class=" btn btn-primary btn-lg"> 
-                            Voltar Pagina registros </button> </a>
+                            Voltar Pagina registros </button> samuel</a>
                             </div>
     
                             <div>
