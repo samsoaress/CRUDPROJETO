@@ -1,4 +1,44 @@
-<!DOCTYPE html>
+<?php
+    include_once('conexao.php');
+
+    var_dump($_GET);
+    
+    if(!empty($_GET['id_pessoa']))
+    {
+        $id = $_GET['id_pessoa'];
+        $sqlSelect = "SELECT *  FROM pessoa WHERE id_pessoa=$id";
+        $result = $conexao->query($sqlSelect);
+        if($result->num_rows > 0)
+        {
+            while($dados_usuario = mysqli_fetch_assoc($result))
+            {
+                $nome = $dados_usuario["no_pessoa"];
+                $sobrenome = $dados_usuario["ds_sobrenome"];
+                $email = $dados_usuario["ds_email"];
+                $tipo = $dados_usuario["co_tipo_pessoa"];
+                $cpf = $dados_usuario["ds_cpf"];
+                $cnpj = $dados_usuario["ds_cnpj"];
+                $cep = $dados_usuario["ds_cep"];
+                $logradouro = $dados_usuario["ds_logradouro"];
+                $bairro = $dados_usuario["ds_bairro"];
+                $cidade =$dados_usuario["ds_cidade"];
+                $estado = $dados_usuario["co_uf"];
+                $telefone = $dados_usuario["ds_telefone"];
+                $numero = $dados_usuario["ds_numero"];
+                $sexo = $dados_usuario["id_sexo"];
+                $data_nasc = date ("d/m/y", strtotime($dados_usuario["dt_nascimento"]));
+            }
+        }
+        else
+        {
+            header('Location: http://localhost/crudprojeto/frontend/cadastrar.php');
+        }
+    }
+   
+ 
+  ?>
+
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +54,7 @@
   <div class="container">
     <div>
       <div>
-        <form action="http://localhost/crudprojeto/banckend/cadastrar.php" method="POST">
+        <form  action="cadastrar.php" method="POST">
           <h1 class="text-center">Cadastro de Formulario</h1>
           <input type="radio" name="dados" id="fisica" value="nao" checked onclick="pessoaFisica()">
           <label>
@@ -47,17 +87,17 @@
           <div class="row">
             <div class="col mb-3">
               <label for="Nome" class="form-label">Nome *</label>
-              <input type="Nome" name="Nome" class="form-control" id="Nome" placeholder="Nome" required>
+              <input type="Nome" name="Nome" class="form-control" id="Nome" placeholder="Nome" required value=<?php echo  $Nome = ''; ?>> 
             </div>
             <div class="col mb-3">
               <label for="sobrenome" class="form-label">Sobrenome *</label>
-              <input type="sobrenome" name="sobrenome" class="form-control" id="sobrenome" placeholder="sobrenome" required>
+              <input type="sobrenome" name="sobrenome" class="form-control" id="sobrenome"  required value<?php echo $sobrenome;?> placeholder="sobrenome"/>
             </div>
           </div>
           <div class="row">
             <div class="col mb-3">
               <label for="email" class="form-label">Email *</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+              <input type="email" name="email" class="form-control" id="email" placeholder="email" required value=<?php echo $email;?>>
             </div>
             <div class="col mb-3">
               <label for="senha" class="form-label">Senha *</label>
@@ -69,38 +109,38 @@
           <div class="row">
             <div class="col mb-3">
               <label for="cpf" class="form-label">Cpf *</label>
-              <input type="text" name="cpf" class="form-control" id="cpf" placeholder="cpf" maxlength="14" required>
+              <input type="text" name="cpf" class="form-control" id="cpf" placeholder="cpf" maxlength="14" required value=<?php echo $cpf;?>>
             </div>
             <div class="col mb-3">
               <label for="cep" class="form-label">Cep *</label>
-              <input type="text" name="cep" class="form-control invalid" id="cep" placeholder="cep" required>
+              <input type="text" name="cep" class="form-control invalid" id="cep" placeholder="cep" required value=<?php echo $cep;?>>
             </div>
           </div>
           <div class="row">
             <div class="col mb-3">
               <label for="logradouro" class="form-label">Logradouro *</label>
-              <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="logradouro" required>
+              <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="logradouro" required value=<?php echo $logradouro;?>>
             </div>
             <div class="col mb-3">
               <label for="numero" class="form-label">Numero *</label>
-              <input type="text" name="numero" class="form-control" id="numero" placeholder="numero" required>
+              <input type="text" name="numero" class="form-control" id="numero" placeholder="numero" required value=<?php echo $numero;?>>
             </div>
           </div>
           <div class="row">
             <div class="col mb-3">
               <label for="bairro" class="form-label">Bairro *</label>
-              <input type="text" name="bairro" class="form-control" id="bairro" placeholder="Bairro" required>
+              <input type="text" name="bairro" class="form-control" id="bairro" placeholder="Bairro" required value=<?php echo $bairro;?>>
             </div>
             <div class="col mb-3">
               <label for="cidade" class="form-label">Cidade *</label>
-              <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cidade" required>
+              <input type="text" name="cidade" class="form-control" id="cidade" placeholder="cidade" required value=<?php echo $cidade;?>>
             </div>
           </div>
           <div class="row">
             <div class="col mb-3">
               <label for="estado" class="form-label">Estado *</label>
               <select id="estado" name="estado" class="form-control form-select" required>
-                <option selected>Escolher...</option>
+                <option selected>ESCOLHER <?php echo $estado;?></option>
                 <option value="MG">MG</option>
                 <option value="DF">DF</option>
                 <option value="SP">SP</option>
@@ -131,7 +171,7 @@
             </div>
             <div class="col mb-3">
               <label for="telefone" class="form-label">Telefone *</label>
-              <input type="text" name="telefone" class="form-control" id="telefone" placeholder="telefone" maxlength="15" required>
+              <input type="text" name="telefone" class="form-control" id="telefone" placeholder="telefone" maxlength="15" required value=<?php echo $telefone;?>>
             </div>
           </div>
           <div class="row">
@@ -139,22 +179,22 @@
               <label for="sexo">Sexo *</label>
               <div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="sexo" id="masculino" value="1" placeholder="masculino" required >
+                  <input class="form-check-input" type="radio" name="sexo" id="masculino"  placeholder="masculino" required value="1" <?php echo ($sexo == 'masculino') ? 'checked' : '1';?> />
                   <label class="form-check-label" name="masculino" for="masculino">Masculino</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="sexo" id="feminino" value="2" placeholder="feminino" required>
+                  <input class="form-check-input" type="radio" name="sexo" id="feminino"  placeholder="feminino" required value="2" <?php echo ($sexo == 'feminino') ? 'checked' : '2';?> />
                   <label class="form-check-label" name="feminino"for="feminino">Feminino</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="sexo" id="outro" value="3" placeholder="outro" required>
+                  <input class="form-check-input" type="radio" name="sexo" id="outro"  placeholder="outro" required value="3" <?php echo ($sexo == 'outro') ? 'checked' : '3';?> />
                   <label class="form-check-label" for="outro">Prefiro não informar</label>
                 </div>
               </div>
             </div>
             <div class="col mb-3">
               <label for="datadenascimento" class="form-label">Data de nascimento *</label>
-              <input type="text" class="date" name="datadenascimento" class="form-control" id="datadenascimento" placeholder="data de nascimento" required>
+              <input type="text" class="date" name="datadenascimento" class="form-control" id="datadenascimento" placeholder="data de nascimento" required value=<?php echo $datadenascimento;?>>
             </div>
           </div>
           <div class="col mb-3">
@@ -177,6 +217,6 @@
   <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
   <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
   <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
-  <script src="js/index.js"></script> 
+  <script src="frontend/js/index.js"></script> 
 </body>
 </html>

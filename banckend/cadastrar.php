@@ -2,23 +2,26 @@
 
 include("conexao.php");
 
+var_dump($_POST);
+
 if (isset($_POST)) {
-    $nome = $_POST['nome'];
+    var_dump('entrou');
+    $nome = $_POST['Nome'];
     $sobrenome = $_POST['sobrenome'];
     $cpf = $_POST['cpf'];
     $razaosocial = $_POST['razaosocial'];
-    $nomefantasia = $_POST['nomefantasia'];
+    $nomefantasia = $_POST['Nomeefantasia'];
     $email = $_POST['email'];
     //$cnpj = $_POST['cpnj'];
-    $senha = $_POST['senha'];
+    $senha = $_POST['password'];
 
-    $datanasc = $_POST['data'];
+    $datanasc = $_POST['datadenascimento'];
     $result = explode('/', $datanasc);
-    $dia = $result[0];
-    $mes = $result[1];
-    $ano = $result[2];
+    $dia = 1;
+    $mes = 2;
+    $ano = 2022;
     $datanasc = $ano . '-' . $mes . '-' . $dia;
-    $telefone = $_POST['tele'];
+    $telefone = $_POST['telefone'];
     $sexo = $_POST['sexo'];
     $cep = $_POST['cep'];
     $rua = $_POST['logradouro'];
@@ -26,12 +29,14 @@ if (isset($_POST)) {
     $estado = $_POST['estado'];
     $bairro = $_POST['bairro'];
     $numero = $_POST['numero'];
-    $complemento = $_POST['complemento'];
-    $opiniao = $_POST['opiniao'];
 
-    $sql = "INSERT INTO pessoa(no_pessoa,ds_sobrenome,ds_email,ds_cpf,ds_cep,ds_logradouro,ds_bairro,ds_cidade,co_uf,ds_telefone,ds_numero,id_sexo,dt_nascimento)
-VALUES ('$nome','$sobrenome','$email','$cpf','$cep','$rua','$bairro','$cidade','$estado','$telefone','$numero','$sexo','$datanasc')";
 
+
+$sql = "INSERT INTO pessoa(no_pessoa,ds_sobrenome,ds_email,ds_cpf,nu_cep,ds_logradouro,ds_bairro,ds_cidade,co_uf,ds_telefone,ds_numero,id_sexo,dt_nascimento)VALUES('$nome','$sobrenome','$email','$cpf','$cep','$rua','$bairro','$cidade','$estado','$telefone','$numero','$sexo','$datanasc')";
+    
+   //$db = mysqli_query($sql,'formulario');
+  //executeQuery( $sql,'formulario');
+    $conexao -> query($sql);
     mysqli_close($conexao);
 } else {
     throw new Exception("Informações não enviadas!");
@@ -56,12 +61,12 @@ VALUES ('$nome','$sobrenome','$email','$cpf','$cep','$rua','$bairro','$cidade','
                     <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Salvo com sucesso!</h1>
                     <div class="d-flex justify-content-evenly ">
                         <div>
-                            <a href=""> <button type="button" class=" btn btn-primary btn-lg">
+                            <a href="cadastrar.php"> <button type="button" class=" btn btn-primary btn-lg">
                                     Voltar Pagina registros </button></a>
                         </div>
 
                         <div>
-                            <a href=""> <button type="button" class=" btn btn-info btn-lg">
+                            <a href="../frontend/cadastrar.php"> <button type="button" class=" btn btn-info btn-lg">
                                     Novo Usuario </button> </a>
                         </div>
 
