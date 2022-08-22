@@ -18,7 +18,7 @@
         }
         
     }
-   
+    
 ?>
 
 <!DOCTYPE html>
@@ -31,19 +31,19 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <title>Document</title>
 </head>
-<body class="bg-dark ">
+<body class="bg-">
 <div class="container ">
-        <div class="row form-cadastro justify-content-center bg-dark ">
+        <div class="row form-cadastro justify-content-center  ">
             <div class="col-6 aling-self-center bg-white">
                 <div class="row justify-content-center mb-4">
-                    <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Usuario excluido com sucesso!</h1>
+                    <h1 class="p-3 mb-2 bg-primary text-white text-center bg-opacity-75">Usuario excluido com sucesso!</h1>
                         <div class="row btn-goup mb-6  ">
                             <div class="d-grid gap-2 col-6 ">
                                                         
-                            <a href="../frontend/CRUDprojeto/cadastrar.php"> <button type="button" class=" btn btn-info btn-lg"> 
+                            <a href="http://localhost/crudprojeto/frontend/cadastrar.php"> <button type="button" class=" btn btn-info btn-lg"> 
                             Novo Usuario </button> </a>         
                                                       
-                             <a href="../frotend/CRUDprojeto/consultar.php"> <button type="button" class=" btn btn-primary btn-lg"> 
+                             <a href="http://localhost/crudprojeto/"> <button type="button" class=" btn btn-primary btn-lg"> 
                             Voltar  </button> </a>   
 
                             <a href="https://www.google.com/"> <button type="button" class=" btn btn-danger btn-lg"> 

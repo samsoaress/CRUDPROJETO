@@ -5,7 +5,7 @@ include("conexao.php");
 var_dump($_POST);
 
 if (isset($_POST)) {
-    var_dump('entrou');
+   
     $nome = $_POST['Nome'];
     $sobrenome = $_POST['sobrenome'];
     $cpf = $_POST['cpf'];
@@ -17,9 +17,9 @@ if (isset($_POST)) {
 
     $datanasc = $_POST['datadenascimento'];
     $result = explode('/', $datanasc);
-    $dia = 1;
-    $mes = 2;
-    $ano = 2022;
+    $dia = $result[0];
+    $mes = $result[1];
+    $ano = $result[2];
     $datanasc = $ano . '-' . $mes . '-' . $dia;
     $telefone = $_POST['telefone'];
     $sexo = $_POST['sexo'];
@@ -61,7 +61,7 @@ $sql = "INSERT INTO pessoa(no_pessoa,ds_sobrenome,ds_email,ds_cpf,nu_cep,ds_logr
                     <h1 class="p-3 mb-2 bg-dark text-white text-center bg-opacity-75">Salvo com sucesso!</h1>
                     <div class="d-flex justify-content-evenly ">
                         <div>
-                            <a href="cadastrar.php"> <button type="button" class=" btn btn-primary btn-lg">
+                            <a href="http://localhost/crudprojeto/"> <button type="button" class=" btn btn-primary btn-lg">
                                     Voltar Pagina registros </button></a>
                         </div>
 

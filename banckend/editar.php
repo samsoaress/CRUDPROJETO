@@ -1,7 +1,7 @@
 <?php
     include_once('conexao.php');
 
-    var_dump($_GET);
+
     
     if(!empty($_GET['id_pessoa']))
     {
@@ -18,7 +18,7 @@
                 $tipo = $dados_usuario["co_tipo_pessoa"];
                 $cpf = $dados_usuario["ds_cpf"];
                 $cnpj = $dados_usuario["ds_cnpj"];
-                $cep = $dados_usuario["ds_cep"];
+                $cep = $dados_usuario["nu_cep"];
                 $logradouro = $dados_usuario["ds_logradouro"];
                 $bairro = $dados_usuario["ds_bairro"];
                 $cidade =$dados_usuario["ds_cidade"];
@@ -87,11 +87,11 @@
           <div class="row">
             <div class="col mb-3">
               <label for="Nome" class="form-label">Nome *</label>
-              <input type="Nome" name="Nome" class="form-control" id="Nome" placeholder="Nome" required value=<?php echo  $Nome = ''; ?>> 
+              <input type="Nome" name="Nome" class="form-control" id="Nome" placeholder="Nome" required value<?php echo $nome;?> />
             </div>
             <div class="col mb-3">
               <label for="sobrenome" class="form-label">Sobrenome *</label>
-              <input type="sobrenome" name="sobrenome" class="form-control" id="sobrenome"  required value<?php echo $sobrenome;?> placeholder="sobrenome"/>
+              <input type="sobrenome" name="sobrenome" class="form-control" id="sobrenome"  required placeholder="sobrenome" value<?php echo $sobrenome;?> />
             </div>
           </div>
           <div class="row">
@@ -194,7 +194,7 @@
             </div>
             <div class="col mb-3">
               <label for="datadenascimento" class="form-label">Data de nascimento *</label>
-              <input type="text" class="date" name="datadenascimento" class="form-control" id="datadenascimento" placeholder="data de nascimento" required value=<?php echo $datadenascimento;?>>
+              <input type="text" class="date" name="datadenascimento" class="form-control" id="datadenascimento" placeholder="data de nascimento" required value=<?php echo $data_nasc;?>>
             </div>
           </div>
           <div class="col mb-3">
@@ -217,6 +217,6 @@
   <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
   <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
   <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
-  <script src="frontend/js/index.js"></script> 
+  <script src="../frontend/js/index.js"></script> 
 </body>
 </html>
